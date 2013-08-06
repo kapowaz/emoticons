@@ -1,0 +1,109 @@
+@mixin emoticon-container($font-size, $color) {
+  font-family: 'emoticons';
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-size: $font-size;
+
+  position: relative;
+  line-height: 1;
+  display: inline-block;
+  overflow: hidden;
+  text-decoration: none;
+  height: $font-size;
+  width: $font-size;
+
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  
+  color: $color;
+}
+
+@mixin emoticon-before($font-size) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -($font-size / 2);
+  margin-left: -($font-size / 2);
+}
+
+@mixin emoticon-after($font-size) {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  margin-top: -($font-size / 2);
+  margin-right: -($font-size / 2);
+}
+
+@mixin emoticon-eyes($glyph, $font-size: 18px, $color: black) {
+  @include emoticon-container($font-size, $color);
+  text-indent: -999px;
+  &:before {
+    @include emoticon-before($font-size);
+    content: $glyph;
+    text-indent: 0;
+  }
+}
+
+@mixin emoticon-mouth($glyph, $font-size: 18px, $color: black) {
+  @include emoticon-container($font-size, $color);
+  text-indent: -999px;
+  &:after {
+    @include emoticon-after($font-size);
+    content: $glyph;
+    text-indent: 0;
+  }
+}
+
+@mixin emoticon-single($glyph, $font-size: 18px, $color: black) {
+  @include emoticon-container($font-size, $color);
+  text-indent: -999px;
+  &:before {
+    @include emoticon-after($font-size);
+    content: $glyph;
+    text-indent: 0;
+  }
+  &:after {
+    text-indent: -999px;
+  }
+}
+
+span.emoticon {
+  @include emoticon-container(18px, black);
+  &:before {
+    @include emoticon-before(18px);
+    content: $emoticon_background_fill;
+    color: rgba(0,0,0,0.2);
+  }
+  &:after {
+    @include emoticon-after(18px);
+    content: $emoticon_background_ring;
+    color: black;
+  }
+}
+
+// eyes
+span.emoticon > span.eyes-happy { @include emoticon-eyes($emoticon_eyes_happy); }
+span.emoticon > span.eyes-angry { @include emoticon-eyes($emoticon_eyes_angry); }
+span.emoticon > span.eyes-crying { @include emoticon-eyes($emoticon_eyes_crying); }
+span.emoticon > span.eyes-disapproval { @include emoticon-eyes($emoticon_eyes_disapproval); }
+span.emoticon > span.eyes-happy { @include emoticon-eyes($emoticon_eyes_happy); }
+span.emoticon > span.eyes-normal { @include emoticon-eyes($emoticon_eyes_normal); }
+span.emoticon > span.eyes-shades { @include emoticon-eyes($emoticon_eyes_shades); }
+span.emoticon > span.eyes-shocked { @include emoticon-eyes($emoticon_eyes_shocked); }
+span.emoticon > span.eyes-tightshut { @include emoticon-eyes($emoticon_eyes_tightshut); }
+span.emoticon > span.eyes-wink { @include emoticon-eyes($emoticon_eyes_wink); }
+
+// mouths
+span.emoticon > span.mouth-downturned { @include emoticon-mouth($emoticon_mouth_downturned); }
+span.emoticon > span.mouth-kiss { @include emoticon-mouth($emoticon_mouth_kiss); }
+span.emoticon > span.mouth-neutral { @include emoticon-mouth($emoticon_mouth_neutral); }
+span.emoticon > span.mouth-smile { @include emoticon-mouth($emoticon_mouth_smile); }
+span.emoticon > span.mouth-smirk { @include emoticon-mouth($emoticon_mouth_smirk); }
+span.emoticon > span.mouth-surprise { @include emoticon-mouth($emoticon_mouth_surprise); }
+span.emoticon > span.mouth-tongue { @include emoticon-mouth($emoticon_mouth_tongue); }
+span.emoticon > span.mouth-unhappy { @include emoticon-mouth($emoticon_mouth_unhappy); }
+span.emoticon > span.mouth-upturned { @include emoticon-mouth($emoticon_mouth_upturned); }
+
+// special cases with a single glyph
+span.emoticon > span.heart { @include emoticon-single($emoticon_heart); }
+span.emoticon > span.star { @include emoticon-single($emoticon_star); }

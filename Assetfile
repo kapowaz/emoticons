@@ -1,0 +1,21 @@
+require 'rake-pipeline-web-filters'
+require 'sass'
+
+output "public/css"
+
+# production-minified version
+input "scss" do
+  match "default.scss" do
+    scss :additional_load_paths => "scss"
+    concat "default.css"
+    yui_css
+  end
+end
+
+# unminified version
+input "scss" do
+  match "default.scss" do
+    scss :additional_load_paths => "scss", :line_comments => false
+    concat "default.css"
+  end
+end

@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'emoticons';
+  src: url('../fonts/emoticons.eot');
+  src: url('../fonts/emoticons.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/emoticons.woff') format('woff'),
+       url('../fonts/emoticons.ttf') format('truetype'),
+       url('../fonts/emoticons.svg#emoticons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$emoticon_background_fill: '\f000';
+$emoticon_background_ring: '\f001';
+$emoticon_eyes_angry: '\f003';
+$emoticon_eyes_crying: '\f004';
+$emoticon_eyes_disapproval: '\f005';
+$emoticon_eyes_happy: '\f006';
+$emoticon_eyes_normal: '\f007';
+$emoticon_eyes_shades: '\f008';
+$emoticon_eyes_shocked: '\f009';
+$emoticon_eyes_tightshut: '\f00a';
+$emoticon_eyes_wink: '\f00b';
+$emoticon_heart: '\f00c';
+$emoticon_mouth_downturned: '\f00d';
+$emoticon_mouth_kiss: '\f00e';
+$emoticon_mouth_neutral: '\f00f';
+$emoticon_mouth_smile: '\f010';
+$emoticon_mouth_smirk: '\f011';
+$emoticon_mouth_surprise: '\f012';
+$emoticon_mouth_tongue: '\f013';
+$emoticon_mouth_unhappy: '\f014';
+$emoticon_mouth_upturned: '\f015';
+$emoticon_star: '\f016';

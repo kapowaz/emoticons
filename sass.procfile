@@ -1,0 +1,2 @@
+sass: rerun -x -p 'scss/**/*' 'bundle exec rakep'
+assetfile: rerun -x -p 'Assetfile' 'bundle exec rakep'
